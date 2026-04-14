@@ -257,6 +257,133 @@ job-preparation-assistant/
 
 ---
 
+## 🔄 自动更新功能
+
+### 功能概述
+
+**用户反馈收集 + 自动优化系统**
+
+求职准备助手支持基于用户反馈的自动更新，让Skill不断优化，更好地满足用户需求。
+
+### 工作流程
+
+```
+用户使用 → 反馈收集 → 数据分析 → 自动更新 → 持续优化
+```
+
+### 反馈类型
+
+#### 1. 资讯反馈
+- 标记有用的资讯
+- 评价资讯质量
+- 推荐新的资讯源
+
+#### 2. 面试问题反馈
+- 评价问题难度
+- 标记有帮助的问题
+- 提交新问题建议
+
+#### 3. 公司信息反馈
+- 评价公司信息准确性
+- 提交信息更新建议
+- 添加新的目标公司
+
+#### 4. 功能建议
+- 提交新功能建议
+- 反馈bug
+- 优化建议
+
+### 使用方法
+
+#### 收集反馈
+
+```bash
+# 运行反馈收集脚本
+python3 scripts/feedback_collector.py
+```
+
+#### 分析反馈
+
+```bash
+# 生成优化报告
+python3 scripts/feedback_analyzer.py
+```
+
+#### 应用更新
+
+```bash
+# 自动更新配置（演练模式）
+python3 scripts/auto_updater.py --dry-run
+
+# 自动更新配置（实际更新）
+python3 scripts/auto_updater.py
+```
+
+### 更新机制
+
+#### 自动优化内容
+- ✅ 调整资讯筛选权重
+- ✅ 优化面试问题难度
+- ✅ 更新公司信息优先级
+- ✅ 改进配置参数
+
+#### 安全保障
+- 📦 自动备份配置文件
+- 📝 记录更新历史
+- 🔄 支持一键回滚
+- ⚠️ 演练模式预览
+
+### 反馈示例
+
+#### Python代码示例
+
+```python
+from scripts.feedback_collector import FeedbackCollector
+
+# 初始化反馈收集器
+collector = FeedbackCollector()
+
+# 添加资讯反馈
+collector.add_news_feedback(
+    news_id="news_001",
+    useful=True,
+    category="行业趋势",
+    comment="这个资讯很有用，帮我了解了最新动态"
+)
+
+# 添加面试问题反馈
+collector.add_interview_feedback(
+    question_id="interview_001",
+    helpful=True,
+    difficulty=3,
+    comment="问题很有代表性"
+)
+
+# 添加公司信息反馈
+collector.add_company_feedback(
+    company_name="字节跳动",
+    rating=5,
+    accurate=True,
+    comment="信息准确，很有帮助"
+)
+
+# 添加用户建议
+collector.add_suggestion(
+    suggestion_type="company",
+    content="希望能增加更多消费电子公司",
+    priority=3
+)
+```
+
+### 更新效果
+
+- 📊 **资讯筛选更精准**：根据用户反馈自动调整权重
+- 🎯 **面试问题更匹配**：根据难度反馈优化问题库
+- 🏢 **公司信息更准确**：及时更新不准确的信息
+- 🚀 **功能持续优化**：根据用户建议改进功能
+
+---
+
 ## 📊 数据统计
 
 ### 投递统计

@@ -29,14 +29,16 @@
       "runtime": "python3",
       "min_version": "3.8"
     },
-    "features": [
-      "求职目标管理",
-      "岗位要求分析",
-      "Marketing资讯智能筛选",
-      "面试准备支持",
-      "求职进度跟踪",
-      "简历优化"
-    ]
+  "features": [
+    "求职目标管理",
+    "岗位要求分析",
+    "Marketing资讯智能筛选",
+    "面试准备支持",
+    "求职进度跟踪",
+    "简历优化",
+    "用户反馈收集",
+    "自动优化更新"
+  ]
   },
   "dependencies": {
     "python": ">=3.8",
@@ -67,7 +69,9 @@
     "daily_brief": "scripts/daily_brief.py",
     "job_analysis": "scripts/job_analysis.py",
     "interview_prep": "scripts/interview_prep.py",
-    "progress_tracker": "scripts/progress_tracker.py"
+    "feedback_collector": "scripts/feedback_collector.py",
+    "feedback_analyzer": "scripts/feedback_analyzer.py",
+    "auto_updater": "scripts/auto_updater.py"
   },
   "templates": [
     "templates/star_template.md",
