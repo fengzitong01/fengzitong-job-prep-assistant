@@ -77,6 +77,68 @@
         "culture": "可持续发展、多元化",
         "priority": 3
       }
+    ],
+    "消费电子": [
+      {
+        "name": "苹果",
+        "products": ["iPhone", "iPad", "Mac", "Apple Watch", "AirPods"],
+        "culture": "创新设计、生态系统、用户体验",
+        "priority": 1
+      },
+      {
+        "name": "三星",
+        "products": ["Galaxy手机", "Galaxy Tab", "Galaxy Watch"],
+        "culture": "全产业链、技术创新、全球化",
+        "priority": 1
+      },
+      {
+        "name": "索尼",
+        "products": ["PlayStation", "Sony相机", "Sony耳机"],
+        "culture": "技术领先、品牌高端、娱乐生态",
+        "priority": 2
+      },
+      {
+        "name": "任天堂",
+        "products": ["Switch", "游戏机", "游戏软件"],
+        "culture": "游戏创新、IP驱动、家庭娱乐",
+        "priority": 2
+      },
+      {
+        "name": "戴森",
+        "products": ["吸尘器", "吹风机", "空气净化器"],
+        "culture": "科技创新、高端定位、设计美学",
+        "priority": 2
+      },
+      {
+        "name": "Bose",
+        "products": ["降噪耳机", "音响", "家庭影院"],
+        "culture": "声学技术、高端音频、降噪专家",
+        "priority": 2
+      },
+      {
+        "name": "大疆",
+        "products": ["无人机", "云台", "运动相机"],
+        "culture": "技术创新、极致产品",
+        "priority": 1
+      },
+      {
+        "name": "科大讯飞",
+        "products": ["翻译机", "智能音箱", "教育硬件"],
+        "culture": "AI技术、语音识别、教育科技",
+        "priority": 2
+      },
+      {
+        "name": "石头科技",
+        "products": ["扫地机器人", "洗地机"],
+        "culture": "技术创新、智能家居、清洁专家",
+        "priority": 2
+      },
+      {
+        "name": "九号公司",
+        "products": ["平衡车", "电动滑板车", "机器人"],
+        "culture": "短途出行、智能科技、年轻化",
+        "priority": 2
+      }
     ]
   },
   "interview_config": {

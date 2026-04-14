@@ -82,6 +82,16 @@
         "name": "vivo",
         "products": ["vivo手机"],
         "culture": "音乐手机、设计导向"
+      },
+      {
+        "name": "大疆",
+        "products": ["无人机", "云台", "运动相机"],
+        "culture": "技术创新、极致产品"
+      },
+      {
+        "name": "传音控股",
+        "products": ["Tecno手机", "Infinix手机", "itel手机"],
+        "culture": "非洲之王、本地化策略"
       }
     ],
     "消费品": [
@@ -124,6 +134,108 @@
         "name": "花西子",
         "products": ["彩妆", "护肤"],
         "culture": "东方美学、国潮品牌"
+      }
+    ],
+    "消费电子": [
+      {
+        "name": "苹果",
+        "products": ["iPhone", "iPad", "Mac", "Apple Watch", "AirPods"],
+        "culture": "创新设计、生态系统、用户体验"
+      },
+      {
+        "name": "三星",
+        "products": ["Galaxy手机", "Galaxy Tab", "Galaxy Watch"],
+        "culture": "全产业链、技术创新、全球化"
+      },
+      {
+        "name": "索尼",
+        "products": ["PlayStation", "Sony相机", "Sony耳机"],
+        "culture": "技术领先、品牌高端、娱乐生态"
+      },
+      {
+        "name": "任天堂",
+        "products": ["Switch", "游戏机", "游戏软件"],
+        "culture": "游戏创新、IP驱动、家庭娱乐"
+      },
+      {
+        "name": "戴森",
+        "products": ["吸尘器", "吹风机", "空气净化器"],
+        "culture": "科技创新、高端定位、设计美学"
+      },
+      {
+        "name": "Bose",
+        "products": ["降噪耳机", "音响", "家庭影院"],
+        "culture": "声学技术、高端音频、降噪专家"
+      },
+      {
+        "name": "JBL",
+        "products": ["蓝牙音箱", "耳机", "专业音响"],
+        "culture": "音乐体验、户外便携、年轻化"
+      },
+      {
+        "name": "罗技",
+        "products": ["鼠标", "键盘", "游戏外设", "摄像头"],
+        "culture": "外设专家、办公游戏双线、技术创新"
+      },
+      {
+        "name": "雷蛇",
+        "products": ["游戏鼠标", "游戏键盘", "游戏耳机"],
+        "culture": "玩家信仰、RGB灯效、电竞生态"
+      },
+      {
+        "name": "漫步者",
+        "products": ["音箱", "耳机", "家庭影院"],
+        "culture": "国货音频、性价比、技术积累"
+      },
+      {
+        "name": "科大讯飞",
+        "products": ["翻译机", "智能音箱", "教育硬件"],
+        "culture": "AI技术、语音识别、教育科技"
+      },
+      {
+        "name": "小度",
+        "products": ["智能音箱", "智能屏", "AI助手"],
+        "culture": "AI大模型、智能家居、语音交互"
+      },
+      {
+        "name": "石头科技",
+        "products": ["扫地机器人", "洗地机"],
+        "culture": "技术创新、智能家居、清洁专家"
+      },
+      {
+        "name": "科沃斯",
+        "products": ["扫地机器人", "擦窗机器人"],
+        "culture": "服务机器人、家庭清洁、智能化"
+      },
+      {
+        "name": "九号公司",
+        "products": ["平衡车", "电动滑板车", "机器人"],
+        "culture": "短途出行、智能科技、年轻化"
+      },
+      {
+        "name": "Insta360",
+        "products": ["全景相机", "运动相机"],
+        "culture": "影像创新、VR/AR、技术驱动"
+      },
+      {
+        "name": "影石",
+        "products": ["运动相机", "全景相机"],
+        "culture": "运动影像、技术创新、年轻化"
+      },
+      {
+        "name": "Anker",
+        "products": ["充电器", "充电宝", "数据线"],
+        "culture": "充电专家、跨境电商、品质保证"
+      },
+      {
+        "name": "绿联",
+        "products": ["数据线", "充电器", "扩展坞"],
+        "culture": "数码配件、性价比、设计简约"
+      },
+      {
+        "name": "倍思",
+        "products": ["充电器", "数据线", "手机配件"],
+        "culture": "快充技术、数码配件、年轻化"
       }
     ]
   },
