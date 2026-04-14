@@ -333,6 +333,106 @@ python3 scripts/auto_updater.py
 - 🔄 支持一键回滚
 - ⚠️ 演练模式预览
 
+#### 更新通知
+- 📧 **如流通知**：每次自动更新后通过如流发送通知
+- 🔔 **Webhook通知**：支持Slack/钉钉等Webhook通知
+- 📮 **邮件通知**：支持SMTP邮件通知
+- 📊 **通知内容**：包含更新详情、备份路径、回滚命令
+
+### 通知配置
+
+在 `config.json` 中配置通知设置：
+
+```json
+"notification": {
+  "enabled": true,
+  "method": "infoflow",
+  "infoflow": {
+    "user": "your_username"
+  },
+  "webhook": {
+    "url": "https://your-webhook-url.com",
+    "enabled": false
+  },
+  "email": {
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender_email": "your-email@gmail.com",
+    "sender_password": "your-app-password",
+    "receiver_email": "receiver@example.com",
+    "enabled": false
+  }
+}
+```
+
+#### 通知方式
+
+**1. 如流通知（推荐）**
+```json
+{
+  "method": "infoflow",
+  "infoflow": {
+    "user": "fengzitong01"
+  }
+}
+```
+
+**2. Webhook通知**
+```json
+{
+  "method": "webhook",
+  "webhook": {
+    "url": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
+    "enabled": true
+  }
+}
+```
+
+**3. 邮件通知**
+```json
+{
+  "method": "email",
+  "email": {
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender_email": "your-email@gmail.com",
+    "sender_password": "your-app-password",
+    "receiver_email": "receiver@example.com",
+    "enabled": true
+  }
+}
+```
+
+#### 通知示例
+
+```
+🔄 求职准备助手自动更新通知
+
+📅 更新时间：2026-04-15T01:23:45
+📊 更新数量：3 项
+
+更新详情：
+
+1. news_weight
+   - 操作：increased
+   - 原因：用户认可度高 (85.0%)，建议增加推送权重
+
+2. company_info
+   - 操作：update_required
+   - 原因：发现3家公司的信息需要更新
+   - 涉及公司：字节跳动, 腾讯, 阿里巴巴
+
+3. interview_difficulty
+   - 操作：increased
+   - 原因：平均难度偏低 (2.3/5)，建议增加更具挑战性的问题
+
+📦 已备份配置文件
+路径：/path/to/backup/config_backup_20260415_012345.json
+
+---
+💡 提示：如需回滚，请运行 `python3 scripts/auto_updater.py --rollback`
+```
+
 ### 反馈示例
 
 #### Python代码示例

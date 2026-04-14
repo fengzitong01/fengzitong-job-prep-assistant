@@ -422,5 +422,24 @@
     "daily_brief_doc_id": "",
     "interview_doc_id": "",
     "progress_doc_id": ""
+  },
+  "notification": {
+    "enabled": true,
+    "method": "infoflow",
+    "infoflow": {
+      "user": "fengzitong01"
+    },
+    "webhook": {
+      "url": "",
+      "enabled": false
+    },
+    "email": {
+      "smtp_server": "",
+      "smtp_port": 587,
+      "sender_email": "",
+      "sender_password": "",
+      "receiver_email": "",
+      "enabled": false
+    }
   }
 }

@@ -71,7 +71,8 @@
     "interview_prep": "scripts/interview_prep.py",
     "feedback_collector": "scripts/feedback_collector.py",
     "feedback_analyzer": "scripts/feedback_analyzer.py",
-    "auto_updater": "scripts/auto_updater.py"
+    "auto_updater": "scripts/auto_updater.py",
+    "update_notification_tool": "scripts/update_notification_tool.py"
   },
   "templates": [
     "templates/star_template.md",

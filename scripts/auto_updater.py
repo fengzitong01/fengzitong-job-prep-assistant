@@ -3,11 +3,13 @@
 """
 自动更新模块
 根据反馈分析结果自动更新配置文件
+支持通知功能
 """
 
 import json
 import os
 import shutil
+import subprocess
 from datetime import datetime
 from typing import Dict, List, Any
 
@@ -15,13 +17,14 @@ from typing import Dict, List, Any
 class AutoUpdater:
     """自动更新器"""
 
-    def __init__(self, config_path: str = None, feedback_path: str = None):
+    def __init__(self, config_path: str = None, feedback_path: str = None, notify_user: str = None):
         """
         初始化自动更新器
 
         Args:
             config_path: 配置文件路径
             feedback_path: 反馈文件路径
+            notify_user: 通知用户（如流用户名）
         """
         script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -33,6 +36,7 @@ class AutoUpdater:
 
         self.config_path = config_path
         self.feedback_path = feedback_path
+        self.notify_user = notify_user
         self.backup_dir = os.path.join(os.path.dirname(config_path), 'backups')
         self.update_history_path = os.path.join(os.path.dirname(config_path), 'update_history.json')
 
@@ -282,11 +286,197 @@ class AutoUpdater:
                 self._save_config()
                 self._save_update_history(updates)
 
+                # 发送通知
+                if self.notify_user:
+                    self._send_notification(result)
+
         except Exception as e:
             result["status"] = "error"
             result["errors"].append(str(e))
 
         return result
+
+    def _format_notification_message(self, update_result: Dict[str, Any]) -> str:
+        """
+        格式化通知消息
+
+        Args:
+            update_result: 更新结果
+
+        Returns:
+            格式化的通知消息
+        """
+        updates = update_result.get("updates_applied", [])
+        timestamp = update_result.get("timestamp", "")
+
+        message = f"🔄 **求职准备助手自动更新通知**\n\n"
+        message += f"📅 更新时间：{timestamp}\n"
+        message += f"📊 更新数量：{len(updates)} 项\n\n"
+
+        if updates:
+            message += "**更新详情：**\n"
+            for i, update in enumerate(updates, 1):
+                update_type = update.get("type", "未知类型")
+                action = update.get("action", "未知操作")
+                reason = update.get("reason", "无原因")
+
+                message += f"\n{i}. **{update_type}**\n"
+                message += f"   - 操作：{action}\n"
+                message += f"   - 原因：{reason}\n"
+
+                if "companies" in update:
+                    companies = update["companies"]
+                    message += f"   - 涉及公司：{', '.join(companies[:3])}"
+                    if len(companies) > 3:
+                        message += f" 等{len(companies)}家\n"
+
+        if update_result.get("backup_path"):
+            message += f"\n\n📦 **已备份配置文件**\n"
+            message += f"路径：{update_result['backup_path']}\n"
+
+        message += "\n\n---\n"
+        message += "💡 **提示**：如需回滚，请运行 `python3 scripts/auto_updater.py --rollback`\n"
+
+        return message
+
+    def _send_notification(self, update_result: Dict[str, Any]):
+        """
+        发送更新通知
+
+        Args:
+            update_result: 更新结果
+        """
+        try:
+            # 格式化通知消息
+            message = self._format_notification_message(update_result)
+
+            # 从配置中读取通知设置
+            notification_config = self.config.get("notification", {})
+            notify_method = notification_config.get("method", "infoflow")
+
+            if notify_method == "infoflow":
+                # 使用如流发送通知
+                self._send_infoflow_notification(message)
+            elif notify_method == "webhook":
+                # 使用Webhook发送通知
+                webhook_url = notification_config.get("webhook_url")
+                if webhook_url:
+                    self._send_webhook_notification(webhook_url, message)
+            elif notify_method == "email":
+                # 使用邮件发送通知
+                email_config = notification_config.get("email", {})
+                if email_config:
+                    self._send_email_notification(email_config, message)
+            else:
+                print(f"⚠️ 未知的通知方式：{notify_method}")
+
+        except Exception as e:
+            print(f"❌ 发送通知失败：{e}")
+
+    def _send_infoflow_notification(self, message: str):
+        """
+        通过如流发送通知
+
+        Args:
+            message: 通知消息
+        """
+        try:
+            # 使用 OpenClaw 的 infoflow_send 工具
+            # 这里假设可以通过命令行调用
+            cmd = [
+                "openclaw", "message", "send",
+                "--to", self.notify_user,
+                "--message", message
+            ]
+
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+
+            if result.returncode == 0:
+                print(f"✅ 已通过如流发送通知给：{self.notify_user}")
+            else:
+                print(f"❌ 如流通知失败：{result.stderr}")
+
+        except FileNotFoundError:
+            # 如果 openclaw 命令不存在，尝试使用其他方式
+            print(f"⚠️ 未找到 openclaw 命令，跳过如流通知")
+            print(f"📝 通知内容：\n{message}")
+
+        except Exception as e:
+            print(f"❌ 如流通知异常：{e}")
+
+    def _send_webhook_notification(self, webhook_url: str, message: str):
+        """
+        通过Webhook发送通知
+
+        Args:
+            webhook_url: Webhook URL
+            message: 通知消息
+        """
+        try:
+            import requests
+
+            payload = {
+                "text": "求职准备助手自动更新",
+                "message": message,
+                "timestamp": datetime.now().isoformat()
+            }
+
+            response = requests.post(webhook_url, json=payload, timeout=10)
+
+            if response.status_code == 200:
+                print(f"✅ 已通过Webhook发送通知")
+            else:
+                print(f"❌ Webhook通知失败：{response.status_code}")
+
+        except ImportError:
+            print("⚠️ 未安装requests库，跳过Webhook通知")
+        except Exception as e:
+            print(f"❌ Webhook通知异常：{e}")
+
+    def _send_email_notification(self, email_config: Dict[str, Any], message: str):
+        """
+        通过邮件发送通知
+
+        Args:
+            email_config: 邮件配置
+            message: 通知消息
+        """
+        try:
+            import smtplib
+            from email.mime.text import MIMEText
+            from email.mime.multipart import MIMEMultipart
+
+            smtp_server = email_config.get("smtp_server")
+            smtp_port = email_config.get("smtp_port", 587)
+            sender_email = email_config.get("sender_email")
+            sender_password = email_config.get("sender_password")
+            receiver_email = email_config.get("receiver_email")
+
+            if not all([smtp_server, sender_email, sender_password, receiver_email]):
+                print("⚠️ 邮件配置不完整，跳过邮件通知")
+                return
+
+            # 创建邮件
+            msg = MIMEMultipart()
+            msg['From'] = sender_email
+            msg['To'] = receiver_email
+            msg['Subject'] = "求职准备助手自动更新通知"
+
+            msg.attach(MIMEText(message, 'plain', 'utf-8'))
+
+            # 发送邮件
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls()
+                server.login(sender_email, sender_password)
+                server.send_message(msg)
+
+            print(f"✅ 已通过邮件发送通知至：{receiver_email}")
+
+        except ImportError:
+            print("⚠️ 未安装smtplib库，跳过邮件通知")
+        except Exception as e:
+            print(f"❌ 邮件通知异常：{e}")
+
 
     def rollback(self, backup_path: str = None) -> Dict[str, Any]:
         """
