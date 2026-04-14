@@ -64,18 +64,56 @@
         "priority": 2
       }
     ],
-    "消费品": [
+    "快消品": [
       {
         "name": "宝洁",
         "products": ["SK-II", "飘柔", "海飞丝"],
         "culture": "品牌管理标杆、管培生体系",
-        "priority": 3
+        "priority": 1
       },
       {
         "name": "联合利华",
         "products": ["多芬", "力士", "奥妙"],
         "culture": "可持续发展、多元化",
-        "priority": 3
+        "priority": 1
+      },
+      {
+        "name": "可口可乐",
+        "products": ["可口可乐", "雪碧", "芬达"],
+        "culture": "饮料帝国、品牌营销典范",
+        "priority": 2
+      },
+      {
+        "name": "农夫山泉",
+        "products": ["农夫山泉", "茶π", "尖叫"],
+        "culture": "天然水概念、产品创新",
+        "priority": 2
+      }
+    ],
+    "美妆护肤": [
+      {
+        "name": "欧莱雅",
+        "products": ["巴黎欧莱雅", "兰蔻", "YSL"],
+        "culture": "美妆帝国、多品牌战略",
+        "priority": 1
+      },
+      {
+        "name": "雅诗兰黛",
+        "products": ["雅诗兰黛", "倩碧", "MAC"],
+        "culture": "高端美妆、品牌矩阵",
+        "priority": 1
+      },
+      {
+        "name": "完美日记",
+        "products": ["完美日记彩妆", "小奥汀"],
+        "culture": "新国货美妆、DTC模式",
+        "priority": 2
+      },
+      {
+        "name": "花西子",
+        "products": ["花西子彩妆", "护肤系列"],
+        "culture": "东方美学、国潮品牌",
+        "priority": 2
       }
     ],
     "消费电子": [
