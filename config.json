@@ -427,7 +427,7 @@
     "enabled": true,
     "method": "feishu",
     "feishu": {
-      "user_id": "",
+      "user_id": "15089576618",
       "chat_id": ""
     },
     "infoflow": {
