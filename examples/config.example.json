@@ -1,0 +1,130 @@
+{
+  "user_profile": {
+    "name": "你的名字",
+    "career_goal": "品牌策划/市场营销经理/数字营销专员",
+    "target_industry": [
+      "互联网大厂",
+      "科技公司",
+      "消费品行业（消费电子、快消）"
+    ],
+    "target_role": [
+      "品牌策划",
+      "市场营销经理",
+      "数字营销专员"
+    ],
+    "focus_areas": [
+      "品牌营销（品牌策略、品牌传播、品牌建设）",
+      "数字营销（社交媒体、内容营销、SEO/SEM）",
+      "整合营销（全渠道营销、营销组合）"
+    ]
+  },
+  "job_search_config": {
+    "start_date": "2026-04-14",
+    "target_salary": {
+      "min": 15000,
+      "max": 25000,
+      "negotiable": true
+    },
+    "preferred_locations": ["北京", "上海", "深圳", "杭州"],
+    "application_limit_per_day": 5,
+    "interview_prepare_days": 3
+  },
+  "target_companies": {
+    "互联网大厂": [
+      {
+        "name": "字节跳动",
+        "products": ["抖音", "今日头条", "TikTok"],
+        "culture": "快速迭代、数据驱动、年轻化",
+        "priority": 1
+      },
+      {
+        "name": "腾讯",
+        "products": ["微信", "QQ", "腾讯视频"],
+        "culture": "产品导向、社交基因、稳健发展",
+        "priority": 1
+      },
+      {
+        "name": "阿里巴巴",
+        "products": ["淘宝", "天猫", "支付宝"],
+        "culture": "电商基因、平台思维、国际化",
+        "priority": 1
+      }
+    ],
+    "科技公司": [
+      {
+        "name": "华为",
+        "products": ["华为手机", "鸿蒙系统"],
+        "culture": "技术驱动、狼性文化",
+        "priority": 2
+      },
+      {
+        "name": "小米",
+        "products": ["小米手机", "米家生态"],
+        "culture": "互联网思维、性价比",
+        "priority": 2
+      }
+    ],
+    "消费品": [
+      {
+        "name": "宝洁",
+        "products": ["SK-II", "飘柔", "海飞丝"],
+        "culture": "品牌管理标杆、管培生体系",
+        "priority": 3
+      },
+      {
+        "name": "联合利华",
+        "products": ["多芬", "力士", "奥妙"],
+        "culture": "可持续发展、多元化",
+        "priority": 3
+      }
+    ]
+  },
+  "interview_config": {
+    "question_types": [
+      {
+        "type": "behavioral",
+        "name": "行为面试",
+        "method": "STAR法则",
+        "sample_questions": [
+          "请介绍一个你主导的成功营销案例",
+          "描述一次你如何处理团队冲突",
+          "谈谈你如何克服工作中的挑战"
+        ]
+      },
+      {
+        "type": "case",
+        "name": "案例分析",
+        "method": "营销案例拆解",
+        "sample_questions": [
+          "如果让你为某品牌做一次营销活动，你会如何规划？",
+          "分析某品牌的市场策略",
+          "如何提升某产品的市场份额"
+        ]
+      }
+    ]
+  },
+  "automation": {
+    "daily_brief": {
+      "enabled": true,
+      "time": "08:00",
+      "timezone": "Asia/Shanghai"
+    },
+    "weekly_summary": {
+      "enabled": true,
+      "time": "21:00",
+      "day": "Sunday"
+    }
+  },
+  "data_tracking": {
+    "applications": [],
+    "interviews": [],
+    "offers": [],
+    "feedback": []
+  },
+  "feishu": {
+    "enabled": false,
+    "app_id": "",
+    "app_secret": "",
+    "main_doc_id": ""
+  }
+}

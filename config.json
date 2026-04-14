@@ -1,0 +1,202 @@
+{
+  "user_profile": {
+    "name": "冯梓桐",
+    "career_goal": "品牌策划/市场营销经理/数字营销专员",
+    "target_industry": [
+      "互联网大厂",
+      "科技公司",
+      "消费品行业（消费电子、快消）"
+    ],
+    "target_role": [
+      "品牌策划",
+      "市场营销经理",
+      "数字营销专员"
+    ],
+    "focus_areas": [
+      "品牌营销（品牌策略、品牌传播、品牌建设）",
+      "数字营销（社交媒体、内容营销、SEO/SEM）",
+      "整合营销（全渠道营销、营销组合）"
+    ]
+  },
+  "job_search_config": {
+    "start_date": "2026-04-14",
+    "target_salary": {
+      "min": 0,
+      "max": 0,
+      "negotiable": true
+    },
+    "preferred_locations": ["北京", "上海", "深圳", "杭州"],
+    "application_limit_per_day": 5,
+    "interview_prepare_days": 3
+  },
+  "target_companies": {
+    "互联网大厂": [
+      {
+        "name": "字节跳动",
+        "products": ["抖音", "今日头条", "TikTok"],
+        "culture": "快速迭代、数据驱动、年轻化"
+      },
+      {
+        "name": "腾讯",
+        "products": ["微信", "QQ", "腾讯视频"],
+        "culture": "产品导向、社交基因、稳健发展"
+      },
+      {
+        "name": "阿里巴巴",
+        "products": ["淘宝", "天猫", "支付宝"],
+        "culture": "电商基因、平台思维、国际化"
+      },
+      {
+        "name": "美团",
+        "products": ["美团外卖", "大众点评"],
+        "culture": "本地生活、服务导向"
+      },
+      {
+        "name": "京东",
+        "products": ["京东商城", "京东物流"],
+        "culture": "正品保障、物流优势"
+      },
+      {
+        "name": "拼多多",
+        "products": ["拼多多APP"],
+        "culture": "社交电商、下沉市场"
+      }
+    ],
+    "科技公司": [
+      {
+        "name": "华为",
+        "products": ["华为手机", "鸿蒙系统"],
+        "culture": "技术驱动、狼性文化"
+      },
+      {
+        "name": "小米",
+        "products": ["小米手机", "米家生态"],
+        "culture": "互联网思维、性价比"
+      },
+      {
+        "name": "OPPO",
+        "products": ["OPPO手机"],
+        "culture": "拍照专家、年轻化"
+      },
+      {
+        "name": "vivo",
+        "products": ["vivo手机"],
+        "culture": "音乐手机、设计导向"
+      }
+    ],
+    "消费品": [
+      {
+        "name": "宝洁",
+        "products": ["SK-II", "飘柔", "海飞丝"],
+        "culture": "品牌管理标杆、管培生体系"
+      },
+      {
+        "name": "联合利华",
+        "products": ["多芬", "力士", "奥妙"],
+        "culture": "可持续发展、多元化"
+      },
+      {
+        "name": "欧莱雅",
+        "products": ["巴黎欧莱雅", "兰蔻"],
+        "culture": "美妆行业领导者、创新驱动"
+      },
+      {
+        "name": "耐克",
+        "products": ["运动鞋服"],
+        "culture": "运动精神、Just Do It"
+      },
+      {
+        "name": "安踏",
+        "products": ["安踏运动鞋服"],
+        "culture": "国货之光、多品牌战略"
+      },
+      {
+        "name": "元气森林",
+        "products": ["气泡水", "茶饮"],
+        "culture": "新消费品牌、互联网思维"
+      },
+      {
+        "name": "完美日记",
+        "products": ["彩妆", "护肤"],
+        "culture": "新国货美妆、DTC模式"
+      },
+      {
+        "name": "花西子",
+        "products": ["彩妆", "护肤"],
+        "culture": "东方美学、国潮品牌"
+      }
+    ]
+  },
+  "interview_config": {
+    "question_types": [
+      {
+        "type": "behavioral",
+        "name": "行为面试",
+        "method": "STAR法则",
+        "sample_questions": [
+          "请介绍一个你主导的成功营销案例",
+          "描述一次你如何处理团队冲突",
+          "谈谈你如何克服工作中的挑战"
+        ]
+      },
+      {
+        "type": "case",
+        "name": "案例分析",
+        "method": "营销案例拆解",
+        "sample_questions": [
+          "如果让你为某品牌做一次营销活动，你会如何规划？",
+          "分析某品牌的市场策略",
+          "如何提升某产品的市场份额"
+        ]
+      },
+      {
+        "type": "situational",
+        "name": "情景面试",
+        "method": "逻辑分析",
+        "sample_questions": [
+          "如果预算减半，你会如何调整营销策略？",
+          "如何在3个月内提升品牌知名度？",
+          "如何应对竞争对手的价格战？"
+        ]
+      }
+    ]
+  },
+  "automation": {
+    "daily_brief": {
+      "enabled": true,
+      "time": "08:00",
+      "timezone": "Asia/Shanghai",
+      "tasks": [
+        "marketing_news_summary",
+        "interview_material_extraction",
+        "job_progress_reminder",
+        "trend_analysis"
+      ]
+    },
+    "weekly_summary": {
+      "enabled": true,
+      "time": "21:00",
+      "day": "Sunday",
+      "tasks": [
+        "job_search_progress",
+        "interview_review",
+        "next_week_plan",
+        "resume_optimization"
+      ]
+    }
+  },
+  "data_tracking": {
+    "applications": [],
+    "interviews": [],
+    "offers": [],
+    "feedback": []
+  },
+  "feishu": {
+    "app_id": "cli_a92053d4ffb85bb5",
+    "app_secret": "SBG5j8eRxG68NM4wvjyuQc8h6eD3CS8U",
+    "main_doc_id": "",
+    "daily_brief_doc_id": "",
+    "interview_doc_id": "",
+    "progress_doc_id": ""
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "name": "job-preparation-assistant",
+  "display_name": "求职准备助手",
+  "version": "1.0.0",
+  "description": "全面的求职准备助手，集成Marketing资讯整理、岗位分析、面试准备、简历优化等功能，助力求职成功",
+  "author": "冯梓桐",
+  "license": "MIT",
+  "keywords": [
+    "求职",
+    "面试",
+    "简历",
+    "Marketing",
+    "品牌策划",
+    "市场营销",
+    "数字营销",
+    "OpenClaw",
+    "Skill"
+  ],
+  "homepage": "https://github.com/fengzitong/job-preparation-assistant",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fengzitong/job-preparation-assistant.git"
+  },
+  "openclaw": {
+    "skill": true,
+    "category": "productivity",
+    "version": "1.0.0",
+    "requires": {
+      "runtime": "python3",
+      "min_version": "3.8"
+    },
+    "features": [
+      "求职目标管理",
+      "岗位要求分析",
+      "Marketing资讯智能筛选",
+      "面试准备支持",
+      "求职进度跟踪",
+      "简历优化"
+    ]
+  },
+  "dependencies": {
+    "python": ">=3.8",
+    "packages": [
+      "requests>=2.25.0",
+      "python-dateutil>=2.8.2"
+    ]
+  },
+  "install": {
+    "script": "install.sh",
+    "commands": [
+      "pip install requests python-dateutil"
+    ]
+  },
+  "uninstall": {
+    "script": "uninstall.sh"
+  },
+  "config": {
+    "file": "config.json",
+    "example": "examples/config.example.json",
+    "required_fields": [
+      "user_profile",
+      "job_search_config",
+      "target_companies"
+    ]
+  },
+  "scripts": {
+    "daily_brief": "scripts/daily_brief.py",
+    "job_analysis": "scripts/job_analysis.py",
+    "interview_prep": "scripts/interview_prep.py",
+    "progress_tracker": "scripts/progress_tracker.py"
+  },
+  "templates": [
+    "templates/star_template.md",
+    "templates/interview_questions.md",
+    "templates/resume_template.md"
+  ],
+  "automation": {
+    "daily": {
+      "time": "08:00",
+      "task": "scripts/daily_brief.py"
+    },
+    "weekly": {
+      "time": "21:00",
+      "day": "Sunday",
+      "task": "scripts/weekly_summary.py"
+    }
+  }
+}
