@@ -1,6 +1,6 @@
 # 求职准备助手 - OpenClaw Skill
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/fengzitong/job-preparation-assistant)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/openclaw-skills/job-preparation-assistant)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-orange.svg)](https://github.com/openclaw/openclaw)
 
@@ -54,7 +54,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/fengzitong/job-preparation-assistant.git
+git clone https://github.com/openclaw-skills/job-preparation-assistant.git
 
 # 进入目录
 cd job-preparation-assistant
@@ -83,7 +83,7 @@ cp examples/config.example.json config.json
 ### 方式3: OpenClaw CLI（即将支持）
 
 ```bash
-openclaw skill install fengzitong/job-preparation-assistant
+openclaw skill install job-preparation-assistant
 ```
 
 ---
@@ -216,7 +216,7 @@ job-preparation-assistant/
 
 | 字段 | 说明 | 示例 |
 |------|------|------|
-| `user_profile.name` | 用户姓名 | "冯梓桐" |
+| `user_profile.name` | 用户姓名 | "你的名字" |
 | `user_profile.career_goal` | 职业目标 | "品牌策划" |
 | `user_profile.target_industry` | 目标行业 | ["互联网大厂"] |
 | `job_search_config.start_date` | 求职开始日期 | "2026-04-14" |
@@ -304,9 +304,8 @@ job-preparation-assistant/
 
 ## 💬 联系方式
 
-- **作者**: 冯梓桐
-- **Email**: fengzitong@example.com
-- **GitHub**: [@fengzitong](https://github.com/fengzitong)
+- **项目**: OpenClaw Skills Community
+- **GitHub**: [openclaw-skills](https://github.com/openclaw-skills)
 
 ---
 

@@ -3,7 +3,7 @@
   "display_name": "求职准备助手",
   "version": "1.0.0",
   "description": "全面的求职准备助手，集成Marketing资讯整理、岗位分析、面试准备、简历优化等功能，助力求职成功",
-  "author": "冯梓桐",
+  "author": "OpenClaw Community",
   "license": "MIT",
   "keywords": [
     "求职",
@@ -16,10 +16,10 @@
     "OpenClaw",
     "Skill"
   ],
-  "homepage": "https://github.com/fengzitong/job-preparation-assistant",
+  "homepage": "https://github.com/openclaw-skills/job-preparation-assistant",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fengzitong/job-preparation-assistant.git"
+    "url": "https://github.com/openclaw-skills/job-preparation-assistant.git"
   },
   "openclaw": {
     "skill": true,

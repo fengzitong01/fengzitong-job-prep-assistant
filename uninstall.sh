@@ -1,6 +1,6 @@
 #!/bin/bash
 # 求职准备助手 - 卸载脚本
-# 作者: 冯梓桐
+# 作者: OpenClaw Community
 # 版本: 1.0.0
 
 set -e  # 遇到错误立即退出
