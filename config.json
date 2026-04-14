@@ -425,7 +425,11 @@
   },
   "notification": {
     "enabled": true,
-    "method": "infoflow",
+    "method": "feishu",
+    "feishu": {
+      "user_id": "",
+      "chat_id": ""
+    },
     "infoflow": {
       "user": "fengzitong01"
     },

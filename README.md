@@ -367,7 +367,27 @@ python3 scripts/auto_updater.py
 
 #### 通知方式
 
-**1. 如流通知（推荐）**
+**1. 飞书通知（推荐）**
+```json
+{
+  "method": "feishu",
+  "feishu": {
+    "user_id": "你的飞书用户ID"
+  }
+}
+```
+
+或者发送到群聊：
+```json
+{
+  "method": "feishu",
+  "feishu": {
+    "chat_id": "你的飞书群聊ID"
+  }
+}
+```
+
+**2. 如流通知**
 ```json
 {
   "method": "infoflow",
@@ -377,7 +397,7 @@ python3 scripts/auto_updater.py
 }
 ```
 
-**2. Webhook通知**
+**3. Webhook通知**
 ```json
 {
   "method": "webhook",
@@ -388,7 +408,7 @@ python3 scripts/auto_updater.py
 }
 ```
 
-**3. 邮件通知**
+**4. 邮件通知**
 ```json
 {
   "method": "email",

@@ -354,7 +354,10 @@ class AutoUpdater:
             notification_config = self.config.get("notification", {})
             notify_method = notification_config.get("method", "infoflow")
 
-            if notify_method == "infoflow":
+            if notify_method == "feishu":
+                # 使用飞书发送通知
+                self._send_feishu_notification(message)
+            elif notify_method == "infoflow":
                 # 使用如流发送通知
                 self._send_infoflow_notification(message)
             elif notify_method == "webhook":
@@ -372,6 +375,91 @@ class AutoUpdater:
 
         except Exception as e:
             print(f"❌ 发送通知失败：{e}")
+
+    def _send_feishu_notification(self, message: str):
+        """
+        通过飞书发送通知
+
+        Args:
+            message: 通知消息
+        """
+        try:
+            import requests
+            import time
+            import hashlib
+            import hmac
+            import base64
+
+            # 从配置中读取飞书配置
+            feishu_config = self.config.get("feishu", {})
+            app_id = feishu_config.get("app_id")
+            app_secret = feishu_config.get("app_secret")
+
+            if not app_id or not app_secret:
+                print("⚠️ 飞书配置不完整，跳过飞书通知")
+                return
+
+            # 获取access_token
+            token_url = "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal"
+            token_data = {
+                "app_id": app_id,
+                "app_secret": app_secret
+            }
+
+            token_response = requests.post(token_url, json=token_data, timeout=10)
+            token_result = token_response.json()
+
+            if token_result.get("code") != 0:
+                print(f"❌ 获取飞书access_token失败：{token_result.get('msg')}")
+                return
+
+            access_token = token_result.get("tenant_access_token")
+
+            # 获取用户ID（如果配置了飞书用户）
+            notification_config = self.config.get("notification", {})
+            feishu_notify = notification_config.get("feishu", {})
+            user_id = feishu_notify.get("user_id")
+            chat_id = feishu_notify.get("chat_id")
+
+            # 发送消息
+            headers = {
+                "Authorization": f"Bearer {access_token}",
+                "Content-Type": "application/json"
+            }
+
+            if chat_id:
+                # 发送到群聊
+                send_url = "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=chat_id"
+                send_data = {
+                    "receive_id": chat_id,
+                    "msg_type": "text",
+                    "content": json.dumps({"text": message})
+                }
+            elif user_id:
+                # 发送给用户
+                send_url = "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=user_id"
+                send_data = {
+                    "receive_id": user_id,
+                    "msg_type": "text",
+                    "content": json.dumps({"text": message})
+                }
+            else:
+                print("⚠️ 未配置飞书user_id或chat_id，跳过飞书通知")
+                return
+
+            send_response = requests.post(send_url, headers=headers, json=send_data, timeout=10)
+            send_result = send_response.json()
+
+            if send_result.get("code") == 0:
+                target = f"群聊 {chat_id}" if chat_id else f"用户 {user_id}"
+                print(f"✅ 已通过飞书发送通知到：{target}")
+            else:
+                print(f"❌ 飞书通知失败：{send_result.get('msg')}")
+
+        except ImportError:
+            print("⚠️ 未安装requests库，跳过飞书通知")
+        except Exception as e:
+            print(f"❌ 飞书通知异常：{e}")
 
     def _send_infoflow_notification(self, message: str):
         """
