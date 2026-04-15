@@ -23,6 +23,31 @@ class JobPrepDailyBrief:
     def generate_daily_brief(self):
         """生成每日求职简报"""
         today = datetime.now().strftime("%Y-%m-%d")
+        
+        # 尝试读取Marketing资讯简报
+        marketing_brief_path = self.output_dir / f"marketing_brief_{today}.md"
+        marketing_section = ""
+        
+        if marketing_brief_path.exists():
+            with open(marketing_brief_path, 'r', encoding='utf-8') as f:
+                marketing_content = f.read()
+                # 提取Marketing资讯部分
+                if "## 📰 精选营销资讯" in marketing_content:
+                    start_idx = marketing_content.find("## 📰 精选营销资讯")
+                    end_idx = marketing_content.find("## 🤝 互动与反馈")
+                    if start_idx != -1 and end_idx != -1:
+                        marketing_section = marketing_content[start_idx:end_idx].strip()
+        
+        if not marketing_section:
+            marketing_section = """### 行业趋势
+- 待收集：每天早上8:00自动更新
+
+### 案例分析
+- 待收集：聚焦品牌营销、数字营销、整合营销
+
+### 面试素材
+- 待提取：从资讯中提取可用于面试的观点和案例"""
+        
         brief = f"""# 求职准备每日简报
 日期：{today}
 
@@ -48,14 +73,7 @@ class JobPrepDailyBrief:
 
 ## 📰 Marketing资讯速览
 
-### 行业趋势
-- 待收集：每天早上8:00自动更新
-
-### 案例分析
-- 待收集：聚焦品牌营销、数字营销、整合营销
-
-### 面试素材
-- 待提取：从资讯中提取可用于面试的观点和案例
+{marketing_section}
 
 ---
 

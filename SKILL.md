@@ -23,12 +23,31 @@
 - 简历优化建议
 
 ### 3. Marketing资讯智能筛选
-- 按求职目标筛选资讯
-- 按公司、岗位、技能分类
-- 面试素材自动提取
-- 行业趋势跟踪
+- **🦞 每日资讯简报**：每天早上8点自动更新营销行业资讯
+- **🎯 智能筛选**：根据求职目标自动筛选相关资讯
+- **💡 面试洞察**：每条资讯都附带面试应用建议
+- **📊 分类整理**：品牌营销、数字营销、整合营销、营销科技、行业趋势
+- **🤝 互动反馈**：评论区开放，支持用户定制需求
+- **📈 趋势跟踪**：行业动态、竞品分析、技术趋势实时更新
 
-### 4. 面试准备支持
+### 4. 营销行业每日Sense日报（新增）
+- **📰 数据来源**：SocialBeta、Morketing、36kr + 关键词搜索
+- **📊 结构化日报**：互联网大厂风向标、快消风向标、品牌案例拆解、行业数据报告、面试素材卡
+- **📄 飞书文档**：自动写入飞书文档（insert_before模式）
+- **💬 飞书私信**：每日推送到用户飞书
+- **⏰ 定时推送**：每工作日早上8:00（北京时间）
+- **🎯 求职导向**：每个案例附带面试可用观点和素材卡
+
+### 4. 营销行业每日Sense日报（新增）
+- **📰 数据来源**：SocialBeta、Morketing、36kr + 关键词搜索
+- **📊 结构化日报**：互联网大厂风向标、快消风向标、品牌案例拆解、行业数据报告、面试素材卡
+- **📄 飞书文档**：自动写入飞书文档（insert_before模式）
+- **💬 飞书私信**：每日推送到用户飞书
+- **⏰ 定时推送**：每工作日早上8:00（北京时间）
+- **🎯 求职导向**：每个案例附带面试可用观点和素材卡
+- **触发词**：每日资讯、生成日报、营销日报、今日资讯、日报生成
+
+### 5. 面试准备支持
 - 常见面试问题库
 - 行为面试STAR法则模板
 - 案例分析准备材料
@@ -52,10 +71,17 @@ skills/job-preparation-assistant/
 ├── SKILL.md
 ├── config.json
 ├── scripts/
-│   ├── job_analysis.py
-│   ├── interview_prep.py
-│   ├── progress_tracker.py
-│   └── resume_optimizer.py
+│   ├── marketing_daily_intel.py        # 营销行业每日Sense日报
+│   ├── marketing_news_collector.py     # Marketing资讯收集器
+│   ├── daily_brief.py                  # 每日简报生成
+│   ├── job_analysis.py                 # 岗位分析
+│   ├── interview_prep.py               # 面试准备
+│   ├── progress_tracker.py             # 进度跟踪
+│   ├── resume_optimizer.py             # 简历优化
+│   ├── auto_updater.py                 # 自动更新
+│   ├── feedback_analyzer.py            # 反馈分析
+│   ├── feedback_collector.py           # 反馈收集
+│   └── update_notification_tool.py     # 更新通知
 ├── templates/
 │   ├── star_template.md
 │   ├── interview_questions.md
@@ -63,15 +89,53 @@ skills/job-preparation-assistant/
 ├── data/
 │   ├── target_companies.json
 │   ├── job_applications.json
-│   └── interview_feedback.json
+│   ├── interview_feedback.json
+│   └── marketing_news_YYYY-MM-DD.json  # Marketing资讯数据
 └── output/
-    ├── daily_brief.md
+    ├── daily_brief.md                  # 每日简报
+    ├── marketing_brief_YYYY-MM-DD.md   # Marketing资讯简报
+    ├── daily_intel_YYYY-MM-DD.md       # 营销行业每日Sense日报
     └── weekly_summary.md
 ```
 
 ## 使用方法
 
-### 1. 求职目标管理
+### 1. Marketing每日资讯
+```bash
+# 生成每日Marketing资讯简报
+python3 ~/.openclaw/skills/job-preparation-assistant/scripts/marketing_news_collector.py
+
+# 查看今日简报
+cat ~/.openclaw/skills/job-preparation-assistant/output/marketing_brief_$(date +%Y-%m-%d).md
+
+# 或查看通用简报
+cat ~/.openclaw/skills/job-preparation-assistant/output/daily_brief.md
+```
+
+**简报特点**：
+- 🦞 **龙虾制作风格**：参考专业营销资讯整理格式
+- ⏰ **每日更新**：早上8点自动更新
+- 💡 **面试导向**：每条资讯附带面试洞察
+- 🎯 **个性化筛选**：根据求职目标自动推荐
+- 🤝 **开放互动**：评论区支持反馈与定制
+
+### 2. 营销行业每日Sense日报
+```bash
+# 生成营销行业每日Sense日报
+python3 ~/.openclaw/skills/job-preparation-assistant/scripts/marketing_daily_intel.py
+
+# 查看今日日报
+cat ~/.openclaw/skills/job-preparation-assistant/output/daily_intel_$(date +%Y-%m-%d).md
+```
+
+**日报特点**：
+- 📰 **多源数据**：SocialBeta、Morketing、36kr + 关键词搜索
+- 📊 **结构化输出**：互联网大厂风向标、快消风向标、品牌案例拆解、行业数据报告、面试素材卡
+- 📄 **飞书集成**：自动写入飞书文档 + 发送私信
+- 🎯 **求职导向**：每个案例附带面试可用观点
+- ⏰ **定时推送**：每工作日早上8:00（北京时间）
+
+### 3. 求职目标管理
 ```bash
 # 设置求职目标
 python3 ~/.openclaw/workspace/skills/job-preparation-assistant/scripts/job_analysis.py --set-goal
